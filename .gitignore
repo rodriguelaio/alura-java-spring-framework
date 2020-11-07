@@ -1,0 +1,8 @@
+.classpath
+.project
+.settings/
+.DS_Store
+**/.DS_Store
+**/*/.DS_Store
+apache-tomcat-9.0.39/
+apache-tomcat-9.0.39.zip
