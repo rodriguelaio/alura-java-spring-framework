@@ -1,8 +1,12 @@
+**/web-hotel-guelaio.iml
 .classpath
 .project
 .settings/
 .DS_Store
+**/.idea
+**/*/.idea
 **/.DS_Store
 **/*/.DS_Store
+**/*/build/
 apache-tomcat-9.0.39/
 apache-tomcat-9.0.39.zip
