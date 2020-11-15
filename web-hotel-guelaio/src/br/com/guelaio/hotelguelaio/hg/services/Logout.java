@@ -2,13 +2,18 @@ package br.com.guelaio.hotelguelaio.hg.services;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.guelaio.hotelguelaio.hg.interfaces.Service;
 
-public class FormCadastrarCliente implements Service {
-	
+public class Logout implements Service {
+
 	public String executar(HttpServletRequest request, HttpServletResponse response) {
-		return "dispatch:formCadastrarCliente.jsp";
+		
+		HttpSession httpSession = request.getSession();
+		httpSession.invalidate();
+		
+		return "redirect:formLogin";
 	}
 
 }

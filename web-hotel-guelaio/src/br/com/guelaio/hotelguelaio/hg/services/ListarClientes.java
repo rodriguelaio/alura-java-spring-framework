@@ -2,6 +2,7 @@ package br.com.guelaio.hotelguelaio.hg.services;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.guelaio.hotelguelaio.hg.interfaces.Service;
 import br.com.guelaio.hotelguelaio.hg.models.Banco;
@@ -13,13 +14,13 @@ public class ListarClientes implements Service {
 
 		Banco banco = new Banco();
 
-		Cliente cliente = banco.getClienteById(Integer.valueOf(request.getParameter("id")));
+		HttpSession httpSession = request.getSession();
+		Cliente cliente = (Cliente) httpSession.getAttribute("cliente");
 
 		request.setAttribute("nome", cliente.getNome());
 		request.setAttribute("cpf", cliente.getCpf());
 		request.setAttribute("listaClientes", banco.getClientes());
-//		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/listaClientes.jsp");
-//		requestDispatcher.forward(request, response);
-		return "dispatch:/WEB-INF/view/listaClientes.jsp";
+		
+		return "dispatch:listaClientes.jsp";
 	}
 }

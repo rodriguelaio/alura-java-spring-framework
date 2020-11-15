@@ -3,6 +3,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <c:url value="/removerCliente" var="linkServletRemoverCliente"/>
+<c:url value="/controllerPrincipalServlet?service=Logout" var="linkLogout"/>
 
 <!DOCTYPE html>
 <html>
@@ -11,18 +12,18 @@
 <title>Listar Cliente</title>
 </head>
 	<body>
+		<c:import url="logout-parcial.jsp"></c:import>
 		<!-- o "nome", que agora está em um bloco chamado de EXPRESSION LANGUAGE,
 			 se refere ao atributo passado na requisicao http -->
-<%-- 		<c:if test="${not empty nome}"> --%>
-			
-			Cliente ${nome} com o CPF ${cpf} cadastrado com sucesso!
-			
-			<c:forEach items="${listaClientes}" var="cliente">
-				<li>
-					${cliente.nome} - <fmt:formatDate value="${cliente.dataDeNascimento}" pattern="dd/MM/yyyy"/> - 
-					<a href="${linkServletRemoverCliente}">remover</a>
-				</li>
-			</c:forEach>
-<%-- 		</c:if> --%>
+	
+		Cliente ${nome} com o CPF ${cpf} cadastrado com sucesso!
+		<br>
+		<br>
+		<c:forEach items="${listaClientes}" var="cliente">
+			<li>
+				${cliente.nome} - <fmt:formatDate value="${cliente.dataDeNascimento}" pattern="dd/MM/yyyy"/> - 
+				<a href="${linkServletRemoverCliente}">remover</a>
+			</li>
+		</c:forEach>
 	</body>
 </html>
